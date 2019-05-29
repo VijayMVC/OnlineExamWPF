@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="CollegeExam.View.Lesson.ucLessonChapterList"
+             xmlns:Buttons="clr-namespace:CollegeExam.Resources.UserControls.Buttons"  
+             xmlns:UserControls="clr-namespace:CollegeExam.Resources.UserControls" 
+
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CollegeExam.View.Lesson"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Border Style="{DynamicResource BorderFormTemp}" >
+            <Grid FlowDirection="RightToLeft" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition MaxHeight="300" MinHeight="200"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition  />
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid  Style="{DynamicResource GridTempTiteBar}" Grid.ColumnSpan="3" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Style="{DynamicResource btnClose}" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                    <TextBlock Text="جستجوی دروس " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="0" Grid.Column="1" />
+                </Grid>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                    <TextBlock Text="لیست پودمان های درس  " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Text="ریاضی" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Text="رشته" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Text="کامپیوتر" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Text="پایه" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Text="دوازدهم" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="1" />
+                </StackPanel>
+                <DataGrid x:Name="Datagrid" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="4"  Style="{DynamicResource styleDataGrid}" MaxHeight="300">
+                    <DataGrid.ColumnHeaderStyle >
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="B koodak"  />
+                            <Setter Property="FontSize" Value="14"  />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="ردیف"  Binding="{Binding Path=ContestID}"  Width="auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="نام پودمان"  Binding="{Binding Path=ContestID}"  Width="auto"></DataGridTextColumn>
+                        <DataGridTextColumn Header="توضیحات"  Binding="{Binding Path=ContestID}"  Width="auto"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="10" HorizontalAlignment="Right" Margin="5"  >
+                    <UserControls:ucButtonCancel x:Name="btnCancel" Margin="10,0"></UserControls:ucButtonCancel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </ScrollViewer>
+
+</UserControl>

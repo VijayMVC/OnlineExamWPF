@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="CollegeExam.View.Student.ucStudentEdit"
+             xmlns:TextBox="clr-namespace:CollegeExam.Resources.UserControls.TextBox" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:Buttons="clr-namespace:CollegeExam.Resources.UserControls.Buttons"  
+             xmlns:UserControls="clr-namespace:CollegeExam.Resources.UserControls" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CollegeExam.View.Student"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Border Style="{DynamicResource BorderFormTemp}" >
+            <Grid FlowDirection="RightToLeft" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition  />
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid  Style="{DynamicResource GridTempTiteBar}" Grid.ColumnSpan="3" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Style="{DynamicResource btnClose}" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                    <TextBlock Text="ویرایش دانش آموز  " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="0" Grid.Column="1" />
+                </Grid>
+
+                <TextBlock Text="کد ملی:" Style="{DynamicResource txtblockTemp}"  Grid.Row="1" Grid.Column="0" />
+                <TextBox:ucTextBoxNationCode x:Name="txtNationCode" Grid.Row="1" Grid.Column="1" />
+                <TextBlock x:Name="validNationCode" Style="{DynamicResource validTemp}"    Grid.Row="1" Grid.Column="2"/>
+
+                <TextBlock Text="نام و نام خانوادگی:" Style="{DynamicResource txtblockTemp}"  Grid.Row="2" Grid.Column="0" />
+                <TextBox x:Name="txtStudentName" Style="{DynamicResource placeHolder}" Tag="نام را وارد نمایید"   Grid.Row="2" Grid.Column="1" MaxLength="40" MaxLines="1" />
+                <TextBlock x:Name="validStudentName" Style="{DynamicResource validTemp}" Text="متن خطا"  VerticalAlignment="Center" Margin="5,5" Grid.Row="2" Grid.Column="2"/>
+
+                <TextBlock Text="نام پدر:" Style="{DynamicResource txtblockTemp}"  Grid.Row="3" Grid.Column="0" />
+                <TextBox x:Name="txtFatherName" Style="{DynamicResource placeHolder}" Tag="نام پدر را وارد نمایید"   Grid.Row="3" Grid.Column="1" MaxLength="40" MaxLines="2" />
+                <TextBlock x:Name="validFatherName" Style="{DynamicResource validTemp}"    Grid.Row="3" Grid.Column="2"/>
+
+                <TextBlock Text="کد دانش آموزی:" Style="{DynamicResource txtblockTemp}"  Grid.Row="4" Grid.Column="0" />
+
+                <TextBox:ucTextBoxStudentCode x:Name="txtStudentCode" Grid.Row="4" Grid.Column="1" />
+
+                <TextBlock x:Name="validStudentCode" Style="{DynamicResource validTemp}"    Grid.Row="4" Grid.Column="2"/>
+
+                <TextBlock Text="نام مدرسه:" Style="{DynamicResource txtblockTemp}"  Grid.Row="5" Grid.Column="0" />
+                <TextBox x:Name="txtSchoolName" Style="{DynamicResource placeHolder}" Tag="نام  مدرسه را وارد نمایید"   Grid.Row="5" Grid.Column="1" MaxLength="10" MaxLines="50" />
+                <TextBlock x:Name="validTempSchoolName" Style="{DynamicResource validTemp}"    Grid.Row="5" Grid.Column="2"/>
+
+                <TextBlock Text="رشته تحصیلی:" Style="{DynamicResource txtblockTemp}"  Grid.Row="6" Grid.Column="0" />
+                <ComboBox x:Name="comboCourseName"  Grid.Row="6" Grid.Column="1" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="ریاضی"/>
+                    <ComboBoxItem Content="کامپیوتر"/>
+                    <ComboBoxItem Content="شیمی"/>
+                </ComboBox>
+                <TextBlock x:Name="validTempCourseName" Style="{DynamicResource validTemp}"  Grid.Row="6" Grid.Column="2"/>
+
+                <TextBlock Text="تاریخ ثبت نام:" Style="{DynamicResource txtblockTemp}" Grid.Row="7" Grid.Column="0" />
+                <TextBox x:Name="txtRegisterDate" Style="{DynamicResource placeHolder}" Tag=""   Grid.Row="7" Grid.Column="1" MaxLength="12" MaxLines="1" />
+                <TextBlock x:Name="validTempRegisterDate" Style="{DynamicResource validTemp}" Grid.Row="7" Grid.Column="2"/>
+
+                <TextBlock Text="پایه ثبت نام:" Style="{DynamicResource txtblockTemp}" Grid.Row="8" Grid.Column="0" />
+                <ComboBox x:Name="cpmboLevel"  Grid.Row="8" Grid.Column="1" Style="{DynamicResource comboDefault}" IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="اول"/>
+                    <ComboBoxItem Content="دوم"/>
+                    <ComboBoxItem Content="سوم"/>
+                    <ComboBoxItem Content="چهارم"/>
+                    <ComboBoxItem Content="پنجم"/>
+                    <ComboBoxItem Content="ششم"/>
+                    <ComboBoxItem Content="هفتم"/>
+                    <ComboBoxItem Content="هشتم"/>
+                    <ComboBoxItem Content="نهم"/>
+                    <ComboBoxItem Content="دهم"/>
+                    <ComboBoxItem Content="یازدهم"/>
+                    <ComboBoxItem Content="دوازدهم"/>
+                </ComboBox>
+                <TextBlock x:Name="validTempLevel" Style="{DynamicResource validTemp}" Grid.Row="8" Grid.Column="2"/>
+
+                <TextBlock Text="موبایل:" Style="{DynamicResource txtblockTemp}" Grid.Row="9" Grid.Column="0" TextAlignment="Left" />
+                <TextBox:ucTextBoxMobile x:Name="txtMobile" Grid.Row="9" Grid.Column="1" />
+                <TextBlock x:Name="validTempMobile" Style="{DynamicResource validTemp}" Grid.Row="9" Grid.Column="2"/>
+
+                <TextBlock Text="ایمیل:" Style="{DynamicResource txtblockTemp}" Grid.Row="10" Grid.Column="0" TextAlignment="Left"/>
+                <TextBox x:Name="txtEmail" Style="{DynamicResource placeHolder}" Tag="ایمیل خود را وارد کنید"   Grid.Row="10" Grid.Column="1" />
+                <TextBlock x:Name="validTempEmail" Style="{DynamicResource validTemp}" Grid.Row="10" Grid.Column="2"/>
+
+
+
+                <StackPanel Orientation="Horizontal" Grid.Row="14" Grid.Column="1"  HorizontalAlignment="Center"  >
+                    <UserControls:ucButtonSave x:Name="btnSave" Margin="10,0"/>
+                    <UserControls:ucButtonCancel x:Name="btnCancel" Margin="10,0" MouseLeftButtonUp="BtnCancel_MouseLeftButtonUp"  />
+                    
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </ScrollViewer>
+</UserControl>

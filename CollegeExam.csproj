@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2FFD4F8-F75D-4B27-AAAC-962E9A3469B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CollegeExam</RootNamespace>
+    <AssemblyName>CollegeExam</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controller\ControllerStudent.cs" />
+    <Compile Include="EntityModels\Chapter.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Class.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Contest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Course.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Designer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Exam.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Lesson.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\LessonCourse.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Participant.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Question.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\QuestionExam.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\RegsiterClass.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Student.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\StudentClass.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\StudentExamPermision.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButton.xaml.cs">
+      <DependentUpon>ucButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonCancel.xaml.cs">
+      <DependentUpon>ucButtonCancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonDefault.xaml.cs">
+      <DependentUpon>ucButtonDefault.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonDelete.xaml.cs">
+      <DependentUpon>ucButtonDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonDisable.xaml.cs">
+      <DependentUpon>ucButtonDisable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonEdit.xaml.cs">
+      <DependentUpon>ucButtonEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonEditUserAccount.xaml.cs">
+      <DependentUpon>ucButtonEditUserAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonEnable.xaml.cs">
+      <DependentUpon>ucButtonEnable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonGraduate.xaml.cs">
+      <DependentUpon>ucButtonGraduate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonNew.xaml.cs">
+      <DependentUpon>ucButtonNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonPasswordReset.xaml.cs">
+      <DependentUpon>ucButtonPasswordReset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonPasswordShow.xaml.cs">
+      <DependentUpon>ucButtonPasswordShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonSave.xaml.cs">
+      <DependentUpon>ucButtonSave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonSearch.xaml.cs">
+      <DependentUpon>ucButtonSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\Buttons\ucButtonSearchAll.xaml.cs">
+      <DependentUpon>ucButtonSearchAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\DatePicker\ucDatePicker.xaml.cs">
+      <DependentUpon>ucDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\TextBox\ucTextBoxFloatNumber.xaml.cs">
+      <DependentUpon>ucTextBoxFloatNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\TextBox\ucTextBoxMobile.xaml.cs">
+      <DependentUpon>ucTextBoxMobile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\TextBox\ucTextBoxNationCode.xaml.cs">
+      <DependentUpon>ucTextBoxNationCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\TextBox\ucTextBoxNumber.xaml.cs">
+      <DependentUpon>ucTextBoxNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\TextBox\ucTextBoxStudentCode.xaml.cs">
+      <DependentUpon>ucTextBoxStudentCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UserControls\ucTextBoxDefault.xaml.cs">
+      <DependentUpon>ucTextBoxDefault.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validations\ValidationExceptions.cs" />
+    <Compile Include="View\Course\ucCourseEdit.xaml.cs">
+      <DependentUpon>ucCourseEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Course\ucCourseSearch.xaml.cs">
+      <DependentUpon>ucCourseSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exam\ucExamAdd.xaml.cs">
+      <DependentUpon>ucExamAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exam\ucExamEdit.xaml.cs">
+      <DependentUpon>ucExamEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exam\ucExamSearch.xaml.cs">
+      <DependentUpon>ucExamSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exam\ucParticipantList.xaml.cs">
+      <DependentUpon>ucParticipantList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Exam\windowExamAddDetails.xaml.cs">
+      <DependentUpon>windowExamAddDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lesson\ucLessonAdd.xaml.cs">
+      <DependentUpon>ucLessonAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lesson\ucLessonChapterList.xaml.cs">
+      <DependentUpon>ucLessonChapterList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lesson\ucLessonEdit.xaml.cs">
+      <DependentUpon>ucLessonEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lesson\ucLessonSearch.xaml.cs">
+      <DependentUpon>ucLessonSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionBlankAdd.xaml.cs">
+      <DependentUpon>ucQuestionBlankAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionBlankEdit.xaml.cs">
+      <DependentUpon>ucQuestionBlankEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionDescriptiveAdd.xaml.cs">
+      <DependentUpon>ucQuestionDescriptiveAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionDescriptiveEdit.xaml.cs">
+      <DependentUpon>ucQuestionDescriptiveEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionMatchingAdd.xaml.cs">
+      <DependentUpon>ucQuestionMatchingAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionMatchingEdit.xaml.cs">
+      <DependentUpon>ucQuestionMatchingEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionPracticalAdd.xaml.cs">
+      <DependentUpon>ucQuestionPracticalAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionPracticalEdit.xaml.cs">
+      <DependentUpon>ucQuestionPracticalEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionSearch.xaml.cs">
+      <DependentUpon>ucQuestionSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionSequentialAdd.xaml.cs">
+      <DependentUpon>ucQuestionSequentialAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionSequentialEdit.xaml.cs">
+      <DependentUpon>ucQuestionSequentialEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionTestAdd.xaml.cs">
+      <DependentUpon>ucQuestionTestAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionTestEdit.xaml.cs">
+      <DependentUpon>ucQuestionTestEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionTrueFalseAdd.xaml.cs">
+      <DependentUpon>ucQuestionTrueFalseAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Question\ucQuestionTrueFalseEdit.xaml.cs">
+      <DependentUpon>ucQuestionTrueFalseEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucQuestionPanelBlank.xaml.cs">
+      <DependentUpon>ucQuestionPanelBlank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucQuestionPanelFill.xaml.cs">
+      <DependentUpon>ucQuestionPanelFill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucQuestionPanelMatching.xaml.cs">
+      <DependentUpon>ucQuestionPanelMatching.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucQuestionPanelTest.xaml.cs">
+      <DependentUpon>ucQuestionPanelTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentAdd.xaml.cs">
+      <DependentUpon>ucStudentAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentEdit.xaml.cs">
+      <DependentUpon>ucStudentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentParticipantInExam.xaml.cs">
+      <DependentUpon>ucStudentParticipantInExam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentRegisterInExam.xaml.cs">
+      <DependentUpon>ucStudentRegisterInExam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentSearch.xaml.cs">
+      <DependentUpon>ucStudentSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentStartExam.xaml.cs">
+      <DependentUpon>ucStudentStartExam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\ucStudentTakedExam.xaml.cs">
+      <DependentUpon>ucStudentTakedExam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\windowStudentEdit.xaml.cs">
+      <DependentUpon>windowStudentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\windowStudentEditUserName.xaml.cs">
+      <DependentUpon>windowStudentEditUserName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ucDefault.xaml.cs">
+      <DependentUpon>ucDefault.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ucDefault1.xaml.cs">
+      <DependentUpon>ucDefault1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\Style\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\DefaultStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonCancel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonDefault.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonDisable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonEditUserAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonEnable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonGraduate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonPasswordReset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonPasswordShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonSave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\Buttons\ucButtonSearchAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\DatePicker\ucDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\TextBox\ucTextBoxFloatNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\TextBox\ucTextBoxMobile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\TextBox\ucTextBoxNationCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\TextBox\ucTextBoxNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\TextBox\ucTextBoxStudentCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\ucTextBoxDefault.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Course\ucCourseAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Course\ucCourseEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Course\ucCourseSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Exam\ucExamAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Exam\ucExamEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Exam\ucExamSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Exam\ucParticipantList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Exam\windowExamAddDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Lesson\ucLessonAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Lesson\ucLessonChapterList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Lesson\ucLessonEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Lesson\ucLessonSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataBase\DataBaseConnection.cs" />
+    <Compile Include="DataBase\MessageDataBase.cs" />
+    <Compile Include="DataBase\SQLDataBaseOperation.cs" />
+    <Compile Include="Model\ModelChapter.cs" />
+    <Compile Include="Model\ModelContest.cs" />
+    <Compile Include="Model\ModelCourse.cs" />
+    <Compile Include="Model\ModelDesigner.cs" />
+    <Compile Include="Model\ModelExam.cs" />
+    <Compile Include="Model\ModelLesson.cs" />
+    <Compile Include="Model\ModelLessonCourse.cs" />
+    <Compile Include="Model\ModelParticipant.cs" />
+    <Compile Include="Model\ModelQuestion.cs" />
+    <Compile Include="Model\ModelQuestionBlank.cs" />
+    <Compile Include="Model\ModelQuestionDescriptive.cs" />
+    <Compile Include="Model\ModelQuestionExam.cs" />
+    <Compile Include="Model\ModelQuestionMatching.cs" />
+    <Compile Include="Model\ModelQuestionTest.cs" />
+    <Compile Include="Model\ModelQuestionTrueFalse.cs" />
+    <Compile Include="Model\ModelStudent.cs" />
+    <Compile Include="Model\ModelStudentExamPermision.cs" />
+    <Compile Include="View\Course\ucCourseAdd.xaml.cs">
+      <DependentUpon>ucCourseAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Question\ucQuestionBlankAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionBlankEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionDescriptiveAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionDescriptiveEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionMatchingAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionMatchingEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionPracticalAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionPracticalEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionSequentialAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionSequentialEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionTestAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionTestEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionTrueFalseAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Question\ucQuestionTrueFalseEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucQuestionPanelBlank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucQuestionPanelFill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucQuestionPanelMatching.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucQuestionPanelTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentParticipantInExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentRegisterInExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentStartExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\ucStudentTakedExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\windowStudentEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\windowStudentEditUserName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ucDefault.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ucDefault1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="EntityModels\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModels\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Other\" />
+    <Folder Include="View\Teacher\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\SQLSscipts\converttabletoclassentity.sql" />
+    <Content Include="DataBase\SQLSscipts\converttabletoclassentitywithnamespace.sql" />
+    <Content Include="DataBase\SQLSscipts\data.sql" />
+    <Content Include="DataBase\SQLSscipts\GenerateDeleteCommand.sql" />
+    <Content Include="DataBase\SQLSscipts\GenerateInsetCommand.sql" />
+    <Content Include="DataBase\SQLSscipts\GenerateUpdateCommand.sql" />
+    <Content Include="DataBase\SQLSscipts\schema.sql" />
+    <Content Include="DataBase\SQLSscipts\schema1.sql" />
+    <Content Include="DataBase\SQLSscipts\schemadata.sql" />
+    <Content Include="EntityModels\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModels\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\Image\POTD_chick_3597497k.jpg" />
+    <Resource Include="Resources\Icon\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

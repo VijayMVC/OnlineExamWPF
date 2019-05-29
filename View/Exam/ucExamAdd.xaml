@@ -1,0 +1,250 @@
+﻿<UserControl xmlns:DatePicker="clr-namespace:CollegeExam.Resources.UserControls.DatePicker"  x:Class="CollegeExam.View.Exam.ucExamAdd"
+             xmlns:TextBox="clr-namespace:CollegeExam.Resources.UserControls.TextBox"  
+             xmlns:Buttons="clr-namespace:CollegeExam.Resources.UserControls.Buttons"  
+             xmlns:UserControls="clr-namespace:CollegeExam.Resources.UserControls" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CollegeExam.View.Exam"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
+        <Border Style="{DynamicResource BorderFormTemp}" >
+            <Grid FlowDirection="RightToLeft" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition  />
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid  Style="{DynamicResource GridTempTiteBar}" Grid.ColumnSpan="10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Style="{DynamicResource btnClose}" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                    <TextBlock Text="ثبت آزمون جدید " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="0" Grid.Column="1" />
+                </Grid>
+
+                <TextBlock Text="نام آزمون:" Style="{DynamicResource txtblockTemp}" Grid.Row="1" Grid.Column="0"  />
+                
+                <TextBox x:Name="txtExamName" Style="{DynamicResource placeHolder}" Tag="نام آزمون را اینجا وارد کنید" Grid.Row="1" Grid.Column="1"   />
+                <TextBlock x:Name="validExamName" Style="{DynamicResource validTemp}" Grid.Row="1" Grid.Column="2"   />
+
+                <TextBlock Text="تاریخ آزمون:" Style="{DynamicResource txtblockTemp}" Grid.Row="1" Grid.Column="3"  />
+                <DatePicker:ucDatePicker Grid.Column="4" Grid.Row="1" />
+                <TextBlock x:Name="validExamDate" Style="{DynamicResource validTemp}" Grid.Row="1" Grid.Column="5"   />
+
+                <TextBlock Text="پایه:" Style="{DynamicResource txtblockTemp}"  Grid.Row="2" Grid.Column="3"  />
+                <ComboBox x:Name="comboLevel"  Grid.Row="2" Grid.Column="4" Style="{DynamicResource comboDefault}" IsTextSearchEnabled="True"  >
+                    <ComboBoxItem Content="اول"/>
+                    <ComboBoxItem Content="دوم"/>
+                    <ComboBoxItem Content="سوم"/>
+                    <ComboBoxItem Content="چهارم"/>
+                    <ComboBoxItem Content="پنجم"/>
+                    <ComboBoxItem Content="ششم"/>
+                    <ComboBoxItem Content="هفتم"/>
+                    <ComboBoxItem Content="هشتم"/>
+                    <ComboBoxItem Content="نهم"/>
+                    <ComboBoxItem Content="دهم"/>
+                    <ComboBoxItem Content="یازدهم"/>
+                    <ComboBoxItem Content="دوازدهم"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamLevel" Style="{DynamicResource validTemp}" Grid.Row="2" Grid.Column="5"   />
+
+                
+                <TextBlock Text="نام درس:" Style="{DynamicResource txtblockTemp}" Grid.Row="3" Grid.Column="0"  />
+                <ComboBox x:Name="comboLesson"  Grid.Row="3" Grid.Column="1" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="ریاضی"/>
+                    <ComboBoxItem Content="کامپیوتر"/>
+                    <ComboBoxItem Content="شیمی"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamLesson" Style="{DynamicResource validTemp}" Grid.Row="3" Grid.Column="2"   />
+                <Buttons:ucButton x:Name="btnDetails" Grid.Row="3" Grid.Column="6"  MouseLeftButtonUp="BtnDetails_MouseLeftButtonUp" Content="sdfsdf"  />
+                
+
+                
+                <TextBlock Text="نام رشته:" Style="{DynamicResource txtblockTemp}" Grid.Row="2" Grid.Column="0"  />
+                <ComboBox x:Name="comboCourse"  Grid.Row="2" Grid.Column="1" Style="{DynamicResource comboDefault}" IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="ریاضی"/>
+                    <ComboBoxItem Content="کامپیوتر"/>
+                    <ComboBoxItem Content="شیمی"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamCourse" Style="{DynamicResource validTemp}" Grid.Row="2" Grid.Column="2"   />
+
+
+                <TextBlock Text="پودمان:" Style="{DynamicResource txtblockTemp}"  Grid.Row="3" Grid.Column="3"  />
+                <TextBox x:Name="txtPoodman" Style="{DynamicResource placeHolder}" Tag="شماره پودمان 1و2و3 یا 1-5" Grid.Row="3" Grid.Column="4"   />
+                <TextBlock x:Name="validPoodman" Style="{DynamicResource validTemp}" Grid.Row="3" Grid.Column="5"   />
+
+                <TextBlock Text="مدت زمان:" Style="{DynamicResource txtblockTemp}"  Grid.Row="4" Grid.Column="0"  />
+                <TextBox x:Name="txtExamTime" Style="{DynamicResource placeHolder}" Tag="زمان آزمون را اینجا وارد کنید" Grid.Row="4" Grid.Column="1"   />
+                <TextBlock x:Name="validExamTime" Style="{DynamicResource validTemp}" Grid.Row="4" Grid.Column="2"   />
+
+                <TextBlock Text="زمان شروع:" Style="{DynamicResource txtblockTemp}"  Grid.Row="4" Grid.Column="3"  />
+                <TextBox x:Name="txtExamTimeStart" Style="{DynamicResource placeHolder}" Tag="زمان شروع آزمون را اینجا وارد کنید" Grid.Row="4" Grid.Column="4"   />
+                <TextBlock x:Name="validExamTimeStart" Style="{DynamicResource validTemp}" Grid.Row="4" Grid.Column="5"   />
+
+                <TextBlock Text="نام طراح  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="5" Grid.Column="0"  />
+                <TextBox x:Name="txtExamDesigner" Style="{DynamicResource placeHolder}" Tag="نام طراح سوال  آزمون را اینجا وارد کنید" Grid.Row="5" Grid.Column="1"   />
+                <TextBlock x:Name="validExamDesinger" Style="{DynamicResource validTemp}" Grid.Row="5" Grid.Column="2"   />
+
+                <TextBlock Text="نام ناظر  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="5" Grid.Column="3"  />
+                <TextBox x:Name="txtSupervisiorName" Style="{DynamicResource placeHolder}" Tag="نام ناظر آزمون را اینجا وارد کنید" Grid.Row="5" Grid.Column="4"   />
+                <TextBlock x:Name="validSupervisiorName" Style="{DynamicResource validTemp}" Grid.Row="5" Grid.Column="5"   />
+                
+                <TextBlock Text="نوع سوالات آزمون:" Style="{DynamicResource txtblockTemp}"  Grid.Row="6" Grid.Column="0"  />
+                <ComboBox x:Name="comboExamQuestionType"  Grid.Row="6" Grid.Column="1" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="تستی"/>
+                    <ComboBoxItem Content="تشریحی"/>
+                    <ComboBoxItem Content="صحیح و غلط"/>
+                    <ComboBoxItem Content="جای خالی"/>
+                    <ComboBoxItem Content="ترکیبی"/>
+                    <ComboBoxItem Content="جور چین"/>
+                    <ComboBoxItem Content="تستی-تشریحی"/>
+                    <ComboBoxItem Content="تستی-جای خالی"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamQuestionType" Style="{DynamicResource validTemp}" Grid.Row="6" Grid.Column="2"   />
+
+                <TextBlock Text="نوع آزمون:" Style="{DynamicResource txtblockTemp}"  Grid.Row="6" Grid.Column="3"  />
+                <ComboBox x:Name="comboExamType"  Grid.Row="6" Grid.Column="4" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="مستمر"/>
+                    <ComboBoxItem Content="تمرینی"/>
+                    <ComboBoxItem Content="پایانی"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamType" Style="{DynamicResource validTemp}" Grid.Row="6" Grid.Column="5"   />
+
+                <TextBlock Text="نوع تکرار آزمون:" Style="{DynamicResource txtblockTemp}"  Grid.Row="7" Grid.Column="0"  />
+                <ComboBox x:Name="comboExamTypeRepeat"  Grid.Row="7" Grid.Column="1" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="اولیه"/>
+                    <ComboBoxItem Content="مجدد"/>
+                </ComboBox>
+                <TextBlock x:Name="validExamTypeRepeat" Style="{DynamicResource validTemp}" Grid.Row="7" Grid.Column="2"   />
+
+                <TextBlock Text="درجه سختی:" Style="{DynamicResource txtblockTemp}"  Grid.Row="7" Grid.Column="3"  />
+                <ComboBox x:Name="comboDifficaultyLevel"  Grid.Row="7" Grid.Column="4" Style="{DynamicResource comboDefault}"  IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="اولیه"/>
+                    <ComboBoxItem Content="تکرار"/>
+                </ComboBox>
+                <TextBlock x:Name="validDifficaultyLevel" Style="{DynamicResource validTemp}" Grid.Row="7" Grid.Column="5"   />
+                
+                <TextBlock Text="تعداد سوالات  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="8" Grid.Column="0"  />
+                <TextBox x:Name="txtExamQuestionCount" Style="{DynamicResource placeHolder}" Tag="تعداد سوالات آزمون را اینجا وارد نمایید" Grid.Row="8" Grid.Column="1"   />
+                <TextBlock x:Name="validExamQuestionCount" Style="{DynamicResource validTemp}" Grid.Row="8" Grid.Column="2"   />
+
+                <TextBlock Text="بارم  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="8" Grid.Column="3"  />
+                <TextBox x:Name="txtExamTotalScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="8" Grid.Column="4"   />
+                <TextBlock x:Name="validExamTotalScore" Style="{DynamicResource validTemp}" Grid.Row="8" Grid.Column="5"   />
+                <Expander Grid.Row="9" Grid.Column="0" Header="تنظیمات بیشتر" Grid.ColumnSpan="6"  ExpandDirection="Down" IsExpanded="False" BorderThickness="2" BorderBrush="LightGray" FontWeight="Bold" FontFamily="B Yekan">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                            
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="تعداد سوالات تستی  :" Style="{DynamicResource txtblockTemp}" Grid.Row="0" Grid.Column="0"   />
+                        <TextBox x:Name="txtOptionalQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="0" Grid.Column="1"  />
+                        <TextBlock x:Name="validOptionalQuestionCount" Style="{DynamicResource validTemp}"  Grid.Row="0" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات تستی  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="0" Grid.Column="3"  />
+                        <TextBox x:Name="txtOptionalQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="0" Grid.Column="4"  />
+                        <TextBlock x:Name="validOptionalQuestionScore" Style="{DynamicResource validTemp}"  Grid.Row="0" Grid.Column="5"  />
+
+                        <TextBlock Text="تعداد سوالات تشریحی  :" Style="{DynamicResource txtblockTemp}" Grid.Row="1" Grid.Column="0"   />
+                        <TextBox x:Name="txtDescriptiveQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="1" Grid.Column="1"  />
+                        <TextBlock x:Name="validDescriptiveQuestionCount" Style="{DynamicResource validTemp}"   Grid.Row="1" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات تشریحی  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="1" Grid.Column="3"  />
+                        <TextBox x:Name="txtDescriptiveQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="1" Grid.Column="4"   />
+                        <TextBlock x:Name="validDescriptiveQuestionScore" Style="{DynamicResource validTemp}" Grid.Row="1" Grid.Column="5"   />
+
+                        <TextBlock Text="تعداد سوالات جای خالی  :" Style="{DynamicResource txtblockTemp}" Grid.Row="2" Grid.Column="0"   />
+                        <TextBox x:Name="txtBlankQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="2" Grid.Column="1"  />
+                        <TextBlock x:Name="validBlankQuestionCount" Style="{DynamicResource validTemp}"   Grid.Row="2" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات جای خالی  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="2" Grid.Column="3"  />
+                        <TextBox x:Name="txtBlankQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="2" Grid.Column="4"   />
+                        <TextBlock x:Name="validBlankQuestionScore" Style="{DynamicResource validTemp}" Grid.Row="2" Grid.Column="5"   />
+
+                        <TextBlock Text="تعداد سوالات صحیح و غلط  :" Style="{DynamicResource txtblockTemp}" Grid.Row="3" Grid.Column="0"   />
+                        <TextBox x:Name="txtTrueFalseQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="3" Grid.Column="1"  />
+                        <TextBlock x:Name="validTrueFalseQuestionCount" Style="{DynamicResource validTemp}"   Grid.Row="3" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات صحیح و غلط  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="3" Grid.Column="3"  />
+                        <TextBox x:Name="txtTrueFalseQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="3" Grid.Column="4"   />
+                        <TextBlock x:Name="validTrueFalseQuestionScore" Style="{DynamicResource validTemp}" Grid.Row="3" Grid.Column="5"   />
+
+                        <TextBlock Text="تعداد سوالات جورچین  :" Style="{DynamicResource txtblockTemp}" Grid.Row="4" Grid.Column="0"   />
+                        <TextBox x:Name="txtMatchQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="4" Grid.Column="1"  />
+                        <TextBlock x:Name="validMatchQuestionCount" Style="{DynamicResource validTemp}"   Grid.Row="4" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات جورچین  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="4" Grid.Column="3"  />
+                        <TextBox x:Name="txtMatchQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="4" Grid.Column="4"   />
+                        <TextBlock x:Name="validMatchQuestionScore" Style="{DynamicResource validTemp}" Grid.Row="4" Grid.Column="5"   />
+
+                        <TextBlock Text="تعداد سوالات ترتیبی  :" Style="{DynamicResource txtblockTemp}" Grid.Row="5" Grid.Column="0"   />
+                        <TextBox x:Name="txtSequentialQuestionCount" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید"  Grid.Row="5" Grid.Column="1"  />
+                        <TextBlock x:Name="validSequentialQuestionCount" Style="{DynamicResource validTemp}"   Grid.Row="5" Grid.Column="2"  />
+
+                        <TextBlock Text="بارم سوالات ترتیبی  :" Style="{DynamicResource txtblockTemp}"  Grid.Row="5" Grid.Column="3"  />
+                        <TextBox x:Name="txtSequentialQuestionScore" Style="{DynamicResource placeHolder}" Tag="بارم آزمون را اینجا وارد کنید" Grid.Row="5" Grid.Column="4"   />
+                        <TextBlock x:Name="validSequentialQuestionScore" Style="{DynamicResource validTemp}" Grid.Row="5" Grid.Column="5"   />
+
+
+                    </Grid>
+
+                </Expander>
+                <StackPanel Orientation="Horizontal" Grid.Row="14" Grid.Column="1"  HorizontalAlignment="Center"  >
+                    <UserControls:ucButtonSave x:Name="btnSave" Margin="10,0"/>
+                    <UserControls:ucButtonCancel x:Name="btnCancel" Margin="10,0"  />
+                    <Buttons:ucButtonNew x:Name="btnNew" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </ScrollViewer>
+</UserControl>

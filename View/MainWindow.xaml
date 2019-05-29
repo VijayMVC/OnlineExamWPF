@@ -1,0 +1,64 @@
+﻿<Window x:Class="CollegeExam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CollegeExam"
+        mc:Ignorable="d"
+        Title="I_Learin" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" >
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+            <DockPanel x:Name="dkpMenu" Grid.Row="0" Background="GhostWhite" FlowDirection="RightToLeft">
+            <Menu DockPanel.Dock="Right">
+                <MenuItem x:Name="mnuCourse" Header="رشته">
+                    <MenuItem x:Name="mnuCourseAdd" Header="ثبت رشته جدید" Click="MnuCourseAdd_Click"></MenuItem>
+                    <MenuItem x:Name="mnuCourseSearch" Header="جستجو و ویرایش" Click="MnuCourseSearch_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="mnuStudent" Header="دانش آموز">
+                    <MenuItem x:Name="mnuStudentAdd" Header="ثبت دانش آموز جدید" Click="MnuStudentAdd_Click" ></MenuItem>
+                    <MenuItem x:Name="mnuStudentSearch" Header="جستجو و ویرایش" Click="MnuStudentSearch_Click"></MenuItem>
+                    <MenuItem x:Name="mnuStudentRegisterInExam" Header="ثبت نام در آزمون" Click="MnuStudentRegisterInExam_Click"></MenuItem>
+                    <MenuItem x:Name="mnuStudentParticipantInExam" Header="شرکت در آزمون" Click="MnuStudentParticipantInExam_Click"></MenuItem>
+                    <MenuItem x:Name="mnuStudentTakedExam" Header="آزمون های من" Click="MnuStudentTakedExam_Click"></MenuItem>
+                    <MenuItem x:Name="mnuStudentStartExam" Header="شرکت در آزمون" Click="MnuStudentStartExam_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="mnuExam" Header="آزمون">
+                    <MenuItem x:Name="mnuExamAdd" Header="افزودن آزمون جدید" Click="MnuExamAdd_Click"/>
+                    <MenuItem x:Name="mnuExamSearch" Header="جستجو و ویرایش آزمون" Click="MnuExamSearch_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="mnuQuestion" Header="سوال">
+                    <MenuItem x:Name="mnuQuestionAdd" Header="افزودن سوال  جدید">
+                        <MenuItem x:Name="mnuQuestionTestAdd" Header="سوال تستی" Click="MnuQuestionTestAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionDescriptiveAdd" Header="سوال تشریحی" Click="MnuQuestionDescriptiveAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionTrueFalseAdd" Header="سوال صحیح و غلط" Click="MnuQuestionTrueFalseAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionSequentialAdd" Header="سوال ترتیبی" Click="MnuQuestionSequentialAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionBlankAdd" Header="سوال جای خالی" Click="MnuQuestionBlankAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionMatchingAdd" Header="سوال جورچین " Click="MnuQuestionMatchingAdd_Click"/>
+                        <MenuItem x:Name="mnuQuestionPracticalAdd" Header="سوال عملی " Click="MnuQuestionPracticalAdd_Click"/>
+                    </MenuItem>
+                    <MenuItem x:Name="mnuQuestionSearch" Header="جستجو و ویرایش آزمون" Click="MnuQuestionSearch_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="mnuLesson" Header="دروس">
+                        <MenuItem x:Name="mnuLessonAdd" Header="اضافه کردن درس جدید" Click="MnuLessonAdd_Click"/>
+                        <MenuItem x:Name="mnuLessonSearch" Header="جستجو و ویرایش دروس" Click="MnuLessonSearch_Click"/>
+                </MenuItem>
+
+             </Menu>
+        </DockPanel>
+        </ScrollViewer>
+
+        <DockPanel x:Name="dkpMain" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+        </DockPanel>
+        
+        <DockPanel x:Name="dkpStatus" Grid.Row="2" Background="AntiqueWhite">
+
+        </DockPanel>
+
+    </Grid>
+</Window>

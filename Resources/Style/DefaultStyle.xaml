@@ -1,0 +1,246 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style TargetType="FrameworkElement"  x:Key="baseStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"  />
+    </Style>
+    <Style TargetType="{x:Type Control}" BasedOn="{StaticResource  baseStyle}" x:Key="baseFont">
+        <Setter Property="FontFamily" Value="B koodak"  />
+        <Setter Property="FontSize" Value="12"  />
+    </Style>
+    <Style TargetType="{x:Type Image}"  x:Key="btnClose"  >
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="RenderTransformOrigin" Value="0.5 0.5" />
+        <Setter Property ="Source"  Value="/CollegeExam;component/Resources/Icon/close.png"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <RotateTransform />
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Image.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="RenderTransform.Angle">
+                        <DoubleAnimation   
+                        From="0" To="360" Duration="0:0:0.5"   
+                        AutoReverse="False"  
+                        FillBehavior="Stop" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="placeHolder" TargetType="{x:Type TextBox}"  BasedOn="{StaticResource baseFont}">
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="MinWidth" Value="250"  />
+        <Setter Property="MaxWidth" Value="250"  />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                        <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                            <TextBox.Style>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                            <Setter Property="Foreground" Value="LightGray"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            <Setter Property="FontFamily" Value="B Yekan"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type TextBlock}"  x:Key="validTemp" BasedOn="{StaticResource baseStyle}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="5,5" />
+        <Setter Property="Foreground" Value="Red"  />
+    </Style>
+    
+    <Style TargetType="{x:Type Button}"  x:Key="btnSave" BasedOn="{StaticResource baseFont}" >
+        <Setter Property="Background" Value="#218838"  />
+        <Setter Property="Foreground" Value="White"  />
+        <Setter Property="Padding" Value="7,5"  />
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="Content" Value="ذخیره"  />
+        <Setter Property="HorizontalContentAlignment" Value="Center"  />
+        <Setter Property="VerticalContentAlignment" Value="Center"  />
+        <Setter Property="Cursor" Value="Hand"  />
+    </Style>
+    <Style TargetType="{x:Type Button}"  x:Key="btnCancel" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Background" Value="#C82333"  />
+        <Setter Property="Foreground" Value="White"  />
+        <Setter Property="Padding" Value="7,5"  />
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="Content" Value="انصراف"  />
+        <Setter Property="HorizontalContentAlignment" Value="Center"  />
+        <Setter Property="VerticalContentAlignment" Value="Center"  />
+        <Setter Property="Cursor" Value="Hand"  />
+
+    </Style>
+    <Style TargetType="{x:Type Button}"  x:Key="btnNew" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Background" Value="#0069D9"  />
+        <Setter Property="Foreground" Value="White"  />
+        <Setter Property="Padding" Value="7,5"  />
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="Content" Value="جدید"  />
+        <Setter Property="HorizontalContentAlignment" Value="Center"  />
+        <Setter Property="VerticalContentAlignment" Value="Center"  />
+        <Setter Property="Cursor" Value="Hand"  />
+    </Style>
+    <Style TargetType="{x:Type TextBlock}"  x:Key="txtblockTemp" BasedOn="{StaticResource baseStyle}">
+        <Setter Property="Margin" Value="5,10"  />
+        <Setter Property="HorizontalAlignment" Value="Right"  />
+        <Setter Property="VerticalAlignment" Value="Center"  />
+
+    </Style>
+    <Style TargetType="{x:Type TextBox}"  x:Key="txtboxTemp" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Margin" Value="5,15"  />
+        <Setter Property="HorizontalAlignment" Value="Stretch"  />
+        <Setter Property="VerticalAlignment" Value="Stretch"  />
+        <Setter Property="FontFamily" Value="B Yekan"  />
+        <Setter Property="FontSize" Value="14"  />
+
+    </Style>
+    
+    <Style TargetType="{x:Type Grid}"  x:Key="GridTempTiteBar">
+        <Setter Property="Background" Value="DeepSkyBlue"  />
+        <Setter Property="Height" Value="40"  />
+        
+    </Style>
+    <Style TargetType="{x:Type Grid}"  x:Key="GridTempStatusBar">
+        <Setter Property="Background" Value="Tomato"  />
+    </Style>
+    
+    <Style TargetType="{x:Type Border}"  x:Key="BorderFormTemp">
+        <Setter Property="BorderThickness" Value="3"  />
+        <Setter Property="BorderBrush" Value="Gray"  />
+        <Setter Property="CornerRadius" Value="5"  />
+    </Style>
+
+    
+    <Style TargetType="{x:Type RichTextBox}"  x:Key="richtxtboxTemp" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="HorizontalAlignment" Value="Stretch"  />
+        <Setter Property="VerticalAlignment" Value="Stretch"  />
+        <Setter Property="MinHeight" Value="100"  />
+        <Setter Property="MaxHeight" Value="200"  />
+        <Setter Property="MinWidth" Value="150"  />
+        <Setter Property="MaxWidth" Value="250"  />
+
+    </Style>
+    <Style TargetType="{x:Type ComboBox}"  x:Key="comboDefault" BasedOn="{StaticResource  baseFont}">
+        <Setter Property="Height" Value="28"  />
+        <Setter Property="Width" Value="250"  />
+        <Setter Property="Margin" Value="5,5"  />
+    </Style>
+    <Style TargetType="{x:Type DataGrid}"  x:Key="styleDataGrid" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Margin" Value="5,5"  />
+        <Setter Property="HorizontalAlignment" Value="Stretch"  />
+        <Setter Property="IsReadOnly" Value="False"  />
+        <Setter Property="AreRowDetailsFrozen" Value="False"/>
+        <Setter Property="CanUserReorderColumns" Value="False"  />
+        <Setter Property="CanUserResizeColumns" Value="False"  />
+        <Setter Property="CanUserSortColumns" Value="False"  />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Visible"  />
+        <Setter Property="VerticalScrollBarVisibility" Value="Visible"  />
+        <Setter Property="SelectionMode" Value="Single"  />
+        <Setter Property="AutoGenerateColumns" Value="False"  />
+        <Setter Property="AlternatingRowBackground" Value="Khaki"  />
+        <Setter Property="AlternationCount" Value="1"  />
+        <Setter Property="CanUserAddRows" Value="False"  />
+        <Setter Property="CanUserDeleteRows" Value="False"  />
+        <Setter Property="MinRowHeight" Value="12"  />
+        <Setter Property="RowBackground" Value="White"  />
+        <Setter Property="RowHeight" Value="40"  />
+        <Setter Property="FlowDirection" Value="RightToLeft"  />
+        <Setter Property="HorizontalContentAlignment" Value="Center"  />
+        <Setter Property="VerticalContentAlignment" Value="Center"  />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+
+    </Style>
+    <Style x:Key="styleDataGridHeader" TargetType="DataGridColumnHeader">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="LightBlue" />
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Calibri" />
+    </Style>
+    <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="grid">
+                        <Border x:Name="border" CornerRadius="20" BorderBrush="DimGray" BorderThickness="1">
+                            <Border.Background>
+                                <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterX="0.2" CenterY="0.3" 
+                                                        ScaleX="1.5" ScaleY="1.5"/>
+                                            <TranslateTransform X="0.02" Y="0.3"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="1" Color="#00000000"/>
+                                    <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextElement.FontWeight="Bold">
+                            </ContentPresenter>
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                                <TranslateTransform X="0.02" Y="0.3"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#00000000" Offset="1"/>
+                                        <GradientStop Color="#FF303030" Offset="0.3"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF33962B"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ace22a04bd34493a2f5c8461d0ee976" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineExamModel.Chapter" Width="1.5" PointX="1.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Class" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Contest" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Course" Width="1.5" PointX="1.5" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Designer" Width="1.5" PointX="1.5" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Exam" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Lesson" Width="1.5" PointX="1.5" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.LessonCourse" Width="1.5" PointX="3.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Participant" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Question" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.QuestionExam" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.RegsiterClass" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.Student" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.StudentClass" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.StudentExamPermision" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="OnlineExamModel.FK_Poodman_Lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Question_Poodman" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Test_Poodman" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_StudentClass_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Contest_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_LessonCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Question_Designer" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Participant_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_QuestionTest_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_StudentTestPermision_Test" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_LessonCourse_Lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_Participant_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_QuestionTest_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_QuestionTest_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_StudentClass_RegsiterClass" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_StudentClass_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamModel.FK_StudentTestPermision_Student" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

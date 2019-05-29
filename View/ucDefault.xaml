@@ -1,0 +1,141 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:local="clr-namespace:CollegeExam.View"
+             xmlns:UserControls="clr-namespace:CollegeExam.Resources.UserControls"    xmlns:Buttons="clr-namespace:CollegeExam.Resources.UserControls.Buttons"           x:Class="CollegeExam.View.ucDefault"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" FontFamily="B koodak">
+
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+    </UserControl.Resources>
+    <Border x:Name="mainBorder" BorderThickness="2" BorderBrush="#007BFF" CornerRadius="7">
+        <Grid FlowDirection="RightToLeft" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid  Background="#007BFF" Grid.ColumnSpan="4" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition  />
+                    <ColumnDefinition Width="30"  />
+                </Grid.ColumnDefinitions>
+                <Image Style="{DynamicResource btnClose}" Margin="5"/>
+                <TextBlock Foreground="WhiteSmoke" Text="نام رشته" Style="{DynamicResource txtblockTemp}" Grid.Row="0" Grid.Column="1" FontFamily="B Titr" HorizontalAlignment="Left" FontSize="18"/>
+                <fa:ImageAwesome Icon="AngleDown" Grid.Column="2" Foreground="WhiteSmoke" Margin="5" Cursor="Hand" MouseLeftButtonDown="ImageAwesome_MouseLeftButtonDown"/>
+            </Grid>
+            <TextBlock Text="نام رشته :" Style="{DynamicResource txtblockTemp}" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="توضیحات :" Style="{DynamicResource txtblockTemp}" Grid.Row="2" Grid.Column="0"/>
+            <TextBox x:Name="txtCourseName" Style="{DynamicResource placeHolder}" Tag="نام را وارد نمایید"  Grid.Row="1" Grid.Column="1"  />
+            <RichTextBox x:Name="txtDescription" Style="{DynamicResource richtxtboxTemp}" Grid.Row="2" Grid.Column="1" />
+            <TextBlock x:Name="validCourseName" Style="{DynamicResource validTemp}" Text="متن خاص" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="2"/>
+            <ComboBox x:Name="comboTest"  Grid.Row="4" Grid.Column="1" Style="{DynamicResource comboDefault}">
+                <ComboBoxItem Content="X"/>
+                <ComboBoxItem Content="Y"/>
+                <ComboBoxItem Content="Z"/>
+            </ComboBox>
+            <DataGrid x:Name="Datagrid" Grid.Row="4" Grid.Column="2" Style="{DynamicResource styleDataGrid}" Margin="0,0,0,-108" >
+                <DataGrid.Resources>
+                    <Style TargetType="ComboBox" x:Key="NamesStyle">
+                        <Setter Property="ItemsSource"
+
+                    Value="{Binding RelativeSource={RelativeSource
+                                FindAncestor, 
+                                AncestorType={x:Type Window}},
+                                Path=DataContext.Names}"/>
+                    </Style>
+                    <Style TargetType="ComboBox" x:Key="AgeRangeStyle">
+                        <Setter Property="ItemsSource"
+
+                    Value="{Binding RelativeSource={RelativeSource
+                                FindAncestor, 
+                                AncestorType={x:Type Window}},
+                                Path=DataContext.AgeRange}"/>
+                    </Style>
+                    <Style TargetType="ComboBox" x:Key="IncomeRangeStyle">
+                        <Setter Property="ItemsSource"
+
+                    Value="{Binding RelativeSource={RelativeSource
+                                FindAncestor, 
+                                AncestorType={x:Type Window}},
+                                Path=DataContext.IncomeRange}"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="کد اعتراض" Binding="{Binding Path=ContestID}" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="کد آزمون" Binding="{Binding Path=TestID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="متن اعتراض" Binding="{Binding Path=ContestText}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="کد دانش آموز" Binding="{Binding Path=StudentID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="اعتبار" Binding="{Binding Path=IsDisabled}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="تاریخ ثبت" Binding="{Binding Path=RegisterDate}"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="وضعیت پاسخ معلم" Binding="{Binding Path=IsTeacherResponse}" ></DataGridCheckBoxColumn>
+                    <DataGridTextColumn Header="پاسخ معلم" Binding="{Binding Path=TeacherResponse}"></DataGridTextColumn>
+                    <DataGridComboBoxColumn Header="Name" SelectedItemBinding="{Binding Path=lst}" ElementStyle="{StaticResource NamesStyle}" EditingElementStyle="{StaticResource NamesStyle}"/>
+                    
+                    <DataGridTemplateColumn Header="Example 12">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox x:Name="combo1" ItemsSource="{Binding Path=lst, RelativeSource={RelativeSource AncestorType=DataGrid}}" DisplayMemberPath="lst" SelectedValuePath="lst" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="/CollegeExam;component/Resources/Image/POTD_chick_3597497k.jpg" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle >
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="FontFamily" Value="B koodak"  />
+                        <Setter Property="FontSize" Value="14"  />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Left" Grid.ColumnSpan="3"  >
+                <UserControls:ucButtonSave Grid.Column="1" HorizontalAlignment="Stretch"   Grid.Row="4" VerticalAlignment="Top"   />
+                <Button x:Name="btnSave" Style="{DynamicResource btnSave}"/>
+                <Button x:Name="btnCancel" Style="{DynamicResource btnCancel}"/>
+                <Button x:Name="btnNew" Style="{DynamicResource btnNew}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2"  HorizontalAlignment="Center" Grid.ColumnSpan="3">
+                <UserControls:ucButtonSave Grid.Column="1" HorizontalAlignment="Stretch"   Grid.Row="4" VerticalAlignment="Top"   />
+                <UserControls:ucButtonCancel Grid.Column="1" HorizontalAlignment="Stretch"   Grid.Row="4" VerticalAlignment="Top"   />
+
+            </StackPanel>
+
+
+
+            <Buttons:ucButtonDefault Cursor="Hand" Grid.Column="2" HorizontalAlignment="Left" Height="39" Margin="229,0,-250,0" Grid.Row="3" VerticalAlignment="Top" Width="168"/>
+            <Image x:Name="img" Grid.Row="4" Grid.ColumnSpan="2" Margin="44,73,10,-73">
+                <Image.Source>
+                    <BitmapImage UriSource="/CollegeExam;component/Resources/Image/POTD_chick_3597497k.jpg" />
+                </Image.Source>
+            </Image>
+
+
+        </Grid>
+    </Border>
+</UserControl>

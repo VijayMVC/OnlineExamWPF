@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="CollegeExam.View.Course.ucCourseSearch"
+             xmlns:Buttons="clr-namespace:CollegeExam.Resources.UserControls.Buttons"  
+             xmlns:UserControls="clr-namespace:CollegeExam.Resources.UserControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CollegeExam.View.Course"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Border Style="{DynamicResource BorderFormTemp}" >
+        <Grid FlowDirection="RightToLeft" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition MaxHeight="300" MinHeight="200"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition  />
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid  Style="{DynamicResource GridTempTiteBar}" Grid.ColumnSpan="3" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Image Style="{DynamicResource btnClose}" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                <TextBlock Text="جستجو و ویرایش رشته " HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5" Grid.Row="0" Grid.Column="1" />
+            </Grid>
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                <TextBlock Text="نام رشته :" Style="{DynamicResource txtblockTemp}"  Grid.Row="1" Grid.Column="0" />
+                <ComboBox x:Name="comboSearch"  Grid.Row="1" Grid.Column="1" Style="{DynamicResource comboDefault}" IsEditable="True" IsTextSearchEnabled="True">
+                    <ComboBoxItem Content="ریاضی"/>
+                    <ComboBoxItem Content="کامپیوتر"/>
+                    <ComboBoxItem Content="شیمی"/>
+                </ComboBox>
+
+                <Buttons:ucButtonSearch x:Name="btnSearch" Margin="10,5"></Buttons:ucButtonSearch>
+                <Buttons:ucButtonSearchAll x:Name="btnSearchAll" Margin="10,5"></Buttons:ucButtonSearchAll>
+            </StackPanel>
+            <DataGrid x:Name="Datagrid" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="4"  Style="{DynamicResource styleDataGrid}" MaxHeight="300">
+                <DataGrid.ColumnHeaderStyle >
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="FontFamily" Value="B koodak"  />
+                        <Setter Property="FontSize" Value="14"  />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="کد رشته"  Binding="{Binding Path=ContestID}"  Width="auto"> </DataGridTextColumn>
+                    <DataGridTextColumn Header="نام رشته" Binding="{Binding Path=TestID}" Width="auto"> </DataGridTextColumn>
+                    <DataGridTextColumn Header="توضیحات" Binding="{Binding Path=ContestText}" Width="auto"> </DataGridTextColumn>
+                    <DataGridTextColumn Header="فعال بودن" Binding="{Binding Path=ContestText}" Width="auto"> </DataGridTextColumn>
+                </DataGrid.Columns>
+                
+                </DataGrid>
+            
+            <TextBlock x:Name="validCourseName" Style="{DynamicResource validTemp}" Text="متن خطا"  VerticalAlignment="Center" Margin="5,5" Grid.Row="1" Grid.Column="2"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Left"  >
+                <UserControls:ucButtonEdit x:Name="btnEdit" Margin="10,0" MouseLeftButtonUp="BtnEdit_MouseLeftButtonUp"/>
+                <Buttons:ucButtonDelete x:Name="btnDelete" Margin="10,0" MouseLeftButtonUp="BtnCancel_MouseLeftButtonUp"  />
+                <UserControls:ucButtonCancel x:Name="btnCancel" Margin="10,0"></UserControls:ucButtonCancel>
+                <Buttons:ucButtonEnable x:Name="btnEnable" Margin="10,0"></Buttons:ucButtonEnable>
+                <Buttons:ucButtonDisable x:Name="btnDisable" Margin="10,0"></Buttons:ucButtonDisable>
+            </StackPanel>
+        </Grid>
+    </Border>
+    </ScrollViewer>
+
+</UserControl>

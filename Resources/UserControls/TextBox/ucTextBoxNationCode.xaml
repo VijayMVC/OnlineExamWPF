@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="CollegeExam.Resources.UserControls.TextBox.ucTextBoxNationCode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CollegeExam.Resources.UserControls.TextBox"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="265">
+    <UserControl.Resources>
+        <ResourceDictionary  Source="/CollegeExam;component/Resources/Style/DefaultStyle.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <TextBox x:Name="txtCode" Style="{DynamicResource placeHolder}" Tag=" کد ملی را وارد کنید" TextChanged="TxtCode_TextChanged" MaxLength="10" MaxLines="1">      </TextBox>
+    </Grid>
+    
+</UserControl>
